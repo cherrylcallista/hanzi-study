@@ -23,7 +23,13 @@ function App() {
     useEffect(() => {
         setCurrentVocab(randomHanzi())
 
-        const handleKeyDown = () => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.code !== "Space") return 
+            
+            if (!started) {
+                setStarted(true)
+            } 
+
             setCurrentVocab(randomHanzi());
         };
 
